@@ -6,6 +6,10 @@ const travelimage = {
   ],
 
   Bali: ["Bali1.JPG","Bali2.JPG","Bali3.JPG","Bali4.JPG","Bali5.JPG","Bali6.JPG","Bali7.JPG","Bali8.JPG","Bali9.JPG","Bali10.JPG","Bali11.JPG","Bali12.JPG","Bali13.JPG","Bali14.JPG"
+  ],
+
+  Hawaii: [
+    "Hawaii1.JPG","Hawaii2.JPG","Hawaii3.JPG","Hawaii4.JPG","Hawaii5.JPG","Hawaii6.JPG","Hawaii7.JPG","Hawaii8.JPG","Hawaii9.JPG","Hawaii10.JPG","Hawaii11.JPG","Hawaii12.JPG"
   ]
 
 }
@@ -27,7 +31,6 @@ function getLasVegasphotos() {
   }
 }
 
-getLasVegasphotos() 
 
 const modalSlider2 = document.querySelector('.modal-slider2')
 function getBanffphotos() {
@@ -43,7 +46,7 @@ function getBanffphotos() {
 
   }
 }
-getBanffphotos()
+
 
 //get Bali photo
 const modalSlider3 = document.querySelector('.modal-slider3')
@@ -60,7 +63,29 @@ function getBaliphotos() {
 
   }
 }
-getBaliphotos()
+
+
+//get Hawaii photos
+const modalSlider4 = document.querySelector('.modal-slider4')
+function getHawaiiphotos() {
+  for (let i = 0; i < travelimage.Hawaii.length; i++) {
+  
+    let HawaiiInner = document.createElement('div');
+    HawaiiInner.classList.add('banff-div');
+    HawaiiInner.innerHTML = `
+    <img src="img/Hawaii/${travelimage.Hawaii[i]}" alt="Hawaii photo">
+    `
+    modalSlider4.appendChild(HawaiiInner);
+
+  }
+}
+
+getLasVegasphotos();
+getBanffphotos();
+getBaliphotos();
+getHawaiiphotos();
+
+
 
 // Lasvegas slide modal show
 let dark = document.querySelector('.dark');
@@ -77,7 +102,7 @@ $(".slide-vegas").click(function() {
 $(' #dark').click(function() {
   $('.modal-LasVegas').fadeOut();
   dark.classList.remove('clicked');
-  $('body').removeClass('fixed').css({ top: 0 });//背景固定を解除
+  $('body').removeClass('fixed').css({ top: 0 });
   $(window).scrollTop(scrollPos);
 
 });
@@ -113,6 +138,23 @@ $(' #dark').click(function() {
   $('.modal-Bali').fadeOut();
   dark.classList.remove('clicked');
   $('body').removeClass('fixed').css({ top: 0 });//背景固定を解除
+  $(window).scrollTop(scrollPos);
+
+});
+
+//Hawaii slide
+$(".slide-hawaii").click(function() {
+  scrollPos = $(window).scrollTop();
+  dark.classList.add('clicked')
+  $(".modal-Hawaii").fadeIn();
+  $('body').addClass('fixed').css({ top: -scrollPos });
+   
+})
+
+$('#dark').click(function() {
+  $('.modal-Hawaii').fadeOut();
+  dark.classList.remove('clicked');
+  $('body').removeClass('fixed').css({ top: 0 });//
   $(window).scrollTop(scrollPos);
 
 });
