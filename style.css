@@ -25,6 +25,19 @@ body.fixed {
   z-index: 10;
 }
 
+.sa {
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.sa.show {
+  opacity: 1;
+  transform: none;
+}
+
+.sa--up {
+  transform: translate(0, 100px);
+}
 
 /* 
 ===============
